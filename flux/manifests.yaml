@@ -154,7 +154,7 @@ spec:
         - --memcached-service=
         - --ssh-keygen-dir=/var/fluxd/keygen
         - --git-user="Weave Flux"
-        - --git-email="flux@asdf.io"
+        - --git-email="tnowak@noreply.github.com"
         - --listen-metrics=:9121
         - --git-poll-interval=1m
         - --sync-interval=5m
@@ -162,9 +162,9 @@ spec:
         - --sync-garbage-collection
         - --git-ci-skip
         - --docker-config=/docker/config.json
-        - --git-url=
+        - --git-url=git@github.com:ionfury/flux-test
         - --git-branch=master
-        - --git-path=
+        - --git-path=manifests/spin
         - --git-sync-tag=
         - --git-timeout=20s
         - --sync-timeout=1m
