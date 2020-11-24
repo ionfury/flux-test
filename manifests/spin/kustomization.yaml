@@ -3,6 +3,9 @@ namespace: test-namespace
 resources:
 - namespace.yaml
 
+generators:
+- spingenerator.yaml
+
 configMapGenerator:
 - name: flux-scripts
   files:

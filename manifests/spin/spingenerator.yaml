@@ -1,0 +1,5 @@
+apiVersion: test.flux/v1
+kind: SpinGenerator
+metadata:
+  name: spingenerator
+argsOneLiner: 10s

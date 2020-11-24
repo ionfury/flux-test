@@ -1,5 +1,5 @@
 version: 1
 patchUpdated:
   generators:
-    - command: kustomize build .
+    - command: XDG_CONFIG_HOME=$(pwd) kustomize build --enable_alpha_plugins .
   patchFile: flux-patch-file.yaml

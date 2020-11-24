@@ -111,7 +111,7 @@ spec:
     protocol: TCP
     targetPort: 9121
   selector:
-    app.kubernetes.io/name: flux-deployment
+    app: flux
   sessionAffinity: None
   type: ClusterIP
 ---
@@ -133,20 +133,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app.kubernetes.io/name: flux-deployment
+    app: flux
   name: flux
   namespace: flux
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: flux-deployment
+      app: flux
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: flux-deployment
+        app: flux
     spec:
       containers:
       - args:
@@ -157,7 +157,7 @@ spec:
         - --git-email="tnowak@noreply.github.com"
         - --listen-metrics=:9121
         - --git-poll-interval=1m
-        - --sync-interval=5m
+        - --sync-interval=1m
         - --manifest-generation=true
         - --sync-garbage-collection
         - --git-ci-skip
@@ -165,7 +165,7 @@ spec:
         - --git-url=git@github.com:ionfury/flux-test
         - --git-branch=master
         - --git-path=manifests/spin
-        - --git-sync-tag=
+        - --git-sync-tag=flux-sync
         - --git-timeout=20s
         - --sync-timeout=1m
         - --k8s-verbosity=5
@@ -201,11 +201,13 @@ spec:
             cpu: 50m
             memory: 64Mi
         volumeMounts:
+        - name: git-key
+          mountPath: /etc/fluxd/ssh # to match location given in image's /etc/ssh/config
+          readOnly: true # this will be the case perforce in K8s >=1.10
         - mountPath: /root/.kubectl
           name: kubedir
         - mountPath: /var/fluxd/keygen
           name: git-keygen
-          readOnly: true
       serviceAccountName: flux
       volumes:
       - configMap:
@@ -213,25 +215,28 @@ spec:
         name: kubedir
       - emptyDir:
           medium: Memory
-          sizeLimit: 256Mi
-        name: git-keygen
+        name: git-keygen  
+      - name: git-key
+        secret:
+          secretName: flux-git-deploy
+          defaultMode: 0400 # when mounted read-only, we won't be able to chmod
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app.kubernetes.io/name: flux-deployment
+    app.kubernetes.io/name: memcached-deployment
   name: memcached
   namespace: flux
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: flux-deployment
+      app.kubernetes.io/name: memcached-deployment
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: flux-deployment
+        app.kubernetes.io/name: memcached-deployment
     spec:
       containers:
       - args:
@@ -255,3 +260,10 @@ spec:
           allowPrivilegeEscalation: false
           runAsGroup: 11211
           runAsUser: 11211
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: flux-git-deploy
+  namespace: flux
+type: Opaque
