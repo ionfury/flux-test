@@ -1,3 +1,8 @@
+namespace: test-namespace
+
+resources:
+- namespace.yaml
+
 configMapGenerator:
 - name: flux-scripts
   files:
