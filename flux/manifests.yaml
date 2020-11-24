@@ -167,7 +167,7 @@ spec:
         - --git-poll-interval=1m
         - --git-timeout=20s
         - --sync-interval=2m
-        - --sync-timeout=80s
+        - --sync-timeout=2m
         - --k8s-verbosity=5
         env:
         - name: KUBECONFIG
