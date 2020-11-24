@@ -159,7 +159,6 @@ spec:
         - --git-poll-interval=1m
         - --sync-interval=5m
         - --manifest-generation=true
-        - --registry-insecure-host=harbor.plex.local
         - --sync-garbage-collection
         - --git-ci-skip
         - --docker-config=/docker/config.json
@@ -175,7 +174,7 @@ spec:
           value: /root/.kubectl/kubeconfig.yaml
         - name: CHECKPOINT_DISABLE
           value: "true"
-        image: plexdev.azurecr.io/pcp/fluxcd/flux:1.21.0
+        image: docker.io/fluxcd/flux:1.21.0
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -239,7 +238,7 @@ spec:
         - -m 512
         - -I 5m
         - -p 11211
-        image: plexdev.azurecr.io/pcp/memcached:1.6.7
+        image: memcached:1.5.20
         imagePullPolicy: IfNotPresent
         name: memcached
         ports:
