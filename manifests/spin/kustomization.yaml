@@ -7,6 +7,6 @@ generators:
 - spingenerator.yaml
 
 configMapGenerator:
-- name: flux-scripts
+- name: test-config
   files:
   - helloworld.txt
