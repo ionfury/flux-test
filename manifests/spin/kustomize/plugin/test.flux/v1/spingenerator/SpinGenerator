@@ -2,10 +2,10 @@
 shift
 sleep $1
 echo "
-kind: ConfigMap
 apiVersion: v1
+data:
+  helloworld.txt: hello, world
+kind: ConfigMap
 metadata:
   name: the-map
-data:
-  hello-world
 "
