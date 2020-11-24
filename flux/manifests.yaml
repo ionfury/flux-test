@@ -156,8 +156,6 @@ spec:
         - --git-user="Weave Flux"
         - --git-email="tnowak@noreply.github.com"
         - --listen-metrics=:9121
-        - --git-poll-interval=1m
-        - --sync-interval=2m
         - --manifest-generation=true
         - --sync-garbage-collection
         - --git-ci-skip
@@ -166,8 +164,10 @@ spec:
         - --git-branch=master
         - --git-path=manifests/spin
         - --git-sync-tag=flux-sync
+        - --git-poll-interval=1m
         - --git-timeout=20s
-        - --sync-timeout=2m
+        - --sync-interval=2m
+        - --sync-timeout=80s
         - --k8s-verbosity=5
         env:
         - name: KUBECONFIG
@@ -202,8 +202,8 @@ spec:
             memory: 64Mi
         volumeMounts:
         - name: git-key
-          mountPath: /etc/fluxd/ssh # to match location given in image's /etc/ssh/config
-          readOnly: true # this will be the case perforce in K8s >=1.10
+          mountPath: /etc/fluxd/ssh 
+          readOnly: true
         - mountPath: /root/.kubectl
           name: kubedir
         - mountPath: /var/fluxd/keygen
@@ -219,7 +219,7 @@ spec:
       - name: git-key
         secret:
           secretName: flux-git-deploy
-          defaultMode: 0400 # when mounted read-only, we won't be able to chmod
+          defaultMode: 0400 
 ---
 apiVersion: apps/v1
 kind: Deployment
