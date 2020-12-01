@@ -1,5 +1,6 @@
 version: 1
 patchUpdated:
   generators:
+    - command: sleep 120s
     - command: XDG_CONFIG_HOME=$(pwd) kustomize build --enable_alpha_plugins .
   patchFile: flux-patch-file.yaml
