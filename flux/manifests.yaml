@@ -167,14 +167,14 @@ spec:
         - --git-poll-interval=1m
         - --git-timeout=20s
         - --sync-interval=2m
-        - --sync-timeout=2m
+        - --sync-timeout=10s
         - --k8s-verbosity=5
         env:
         - name: KUBECONFIG
           value: /root/.kubectl/kubeconfig.yaml
         - name: CHECKPOINT_DISABLE
           value: "true"
-        image: docker.io/fluxcd/flux:1.21.0
+        image: localhost:5000/flux
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

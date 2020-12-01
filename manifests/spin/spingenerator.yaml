@@ -2,4 +2,4 @@ apiVersion: test.flux/v1
 kind: SpinGenerator
 metadata:
   name: spingenerator
-argsOneLiner: 70s
+argsOneLiner: 130s
