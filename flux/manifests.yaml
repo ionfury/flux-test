@@ -161,7 +161,7 @@ spec:
         - --git-ci-skip
         - --docker-config=/docker/config.json
         - --git-url=git@github.com:ionfury/flux-test
-        - --git-branch=master
+        - --git-branch=private-playground
         - --git-path=manifests/spin
         - --git-sync-tag=flux-sync
         - --git-poll-interval=1m
