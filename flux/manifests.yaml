@@ -161,14 +161,14 @@ spec:
         - --git-ci-skip
         - --docker-config=/docker/config.json
         - --git-url=git@github.com:ionfury/flux-test
-        #- --git-branch=private-playground
-        - --git-branch=master
+        - --git-branch=private-playground
+        #- --git-branch=master
         - --git-path=manifests/spin
         - --git-sync-tag=flux-sync
         - --git-poll-interval=1m
         - --git-timeout=20s
         - --sync-interval=2m
-        - --sync-timeout=10s
+        #- --sync-timeout=10s
         - --k8s-verbosity=5
         env:
         - name: KUBECONFIG
