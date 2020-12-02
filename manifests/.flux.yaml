@@ -5,5 +5,5 @@ patchUpdated:
     - command: sleep 1
       timeout: 2s
     - command: sleep 61
-      timeout: 1s
+      timeout: 70s
   patchFile: baz.yaml
