@@ -2,6 +2,4 @@ version: 1
 patchUpdated:
   generators:
     - command: sleep 61s
-  #  - command: XDG_CONFIG_HOME=$(pwd) kustomize build --enable_alpha_plugins .
-  #    timeout: 80s
   patchFile: flux-patch-file.yaml
