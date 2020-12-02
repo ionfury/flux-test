@@ -162,7 +162,7 @@ spec:
         - --docker-config=/docker/config.json
         - --git-url=git@github.com:ionfury/flux-test
         #- --git-branch=private-playground
-        #- --git-branch=master
+        - --git-branch=master
         - --git-path=manifests/spin
         - --git-sync-tag=flux-sync
         - --git-poll-interval=1m
