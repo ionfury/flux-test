@@ -164,11 +164,11 @@ spec:
         - --git-branch=private-playground
         #- --git-branch=master
         - --git-path=manifests/spin
-        - --git-sync-tag=flux-sync
+        - --git-sync-tag=flux-sync2
         - --git-poll-interval=1m
         - --git-timeout=20s
-        - --sync-interval=2m
-        #- --sync-timeout=10s
+        - --sync-interval=1m
+        - --sync-timeout=1s
         - --k8s-verbosity=5
         env:
         - name: KUBECONFIG
