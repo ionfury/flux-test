@@ -1,6 +1,9 @@
 version: 1
 patchUpdated:
   generators:
-    - command: sleep 61s
-      timeout: 70s
-  patchFile: flux-patch-file.yaml
+    - command: sleep 1 
+    - command: sleep 1
+      timeout: 2s
+    - command: sleep 2
+      timeout: 1s
+  patchFile: baz.yaml
