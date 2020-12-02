@@ -161,7 +161,8 @@ spec:
         - --git-ci-skip
         - --docker-config=/docker/config.json
         - --git-url=git@github.com:ionfury/flux-test
-        - --git-branch=private-playground
+        #- --git-branch=private-playground
+        - --git-branch=master
         - --git-path=manifests/spin
         - --git-sync-tag=flux-sync
         - --git-poll-interval=1m
@@ -174,7 +175,8 @@ spec:
           value: /root/.kubectl/kubeconfig.yaml
         - name: CHECKPOINT_DISABLE
           value: "true"
-        image: localhost:5000/flux
+        image: docker.io/fluxcd/flux:1.21.0
+        #image: localhost:5000/flux:v4
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
