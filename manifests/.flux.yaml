@@ -4,5 +4,5 @@ patchUpdated:
    # - command: XDG_CONFIG_HOME=$(pwd) kustomize build --enable_alpha_plugins .
    #   timeout: 2m
    - command: sleep 70
-     timeout: 80
+     timeout: 80s
   patchFile: flux-patch-file.yaml
