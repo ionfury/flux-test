@@ -164,11 +164,11 @@ spec:
         - --git-branch=private-playground
         #- --git-branch=master
         - --git-path=manifests/spin
-        - --git-sync-tag=flux-sync4
+        - --git-sync-tag=flux-sync5
         - --git-poll-interval=1m
         - --git-timeout=20s
         - --sync-interval=1m
-        - --sync-timeout=70s
+        - --sync-timeout=80s
         - --k8s-verbosity=5
         env:
         - name: KUBECONFIG
@@ -176,7 +176,7 @@ spec:
         - name: CHECKPOINT_DISABLE
           value: "true"
         #image: docker.io/fluxcd/flux:1.21.0
-        image: localhost:5000/flux:v13
+        image: localhost:5000/flux:v14
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
