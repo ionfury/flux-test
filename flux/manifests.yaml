@@ -164,7 +164,7 @@ spec:
         - --git-branch=private-playground
         #- --git-branch=master
         - --git-path=manifests/spin
-        - --git-sync-tag=flux-sync7
+        - --git-sync-tag=flux-sync8
         - --git-poll-interval=1m
         - --git-timeout=20s
         - --sync-interval=1m
