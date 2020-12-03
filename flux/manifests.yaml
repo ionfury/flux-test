@@ -164,7 +164,7 @@ spec:
         - --git-branch=private-playground
         #- --git-branch=master
         - --git-path=manifests/spin
-        - --git-sync-tag=flux-sync8
+        - --git-sync-tag=flux-sync9
         - --git-poll-interval=1m
         - --git-timeout=20s
         - --sync-interval=1m
@@ -175,8 +175,8 @@ spec:
           value: /root/.kubectl/kubeconfig.yaml
         - name: CHECKPOINT_DISABLE
           value: "true"
-        image: docker.io/fluxcd/flux:1.21.0
-        #image: localhost:5000/flux:v15
+        #image: docker.io/fluxcd/flux:1.21.0
+        image: localhost:5000/flux:v1
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
