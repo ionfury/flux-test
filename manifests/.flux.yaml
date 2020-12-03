@@ -1,7 +1,6 @@
 version: 1
 patchUpdated:
   generators:
-    - command: sleep 1 
     - command: sleep 1
       timeout: 2s
     - command: sleep 61

@@ -175,9 +175,9 @@ spec:
           value: /root/.kubectl/kubeconfig.yaml
         - name: CHECKPOINT_DISABLE
           value: "true"
-        image: docker.io/fluxcd/flux:1.21.0
-        #image: localhost:5000/flux:v7
-        imagePullPolicy: IfNotPresent
+        #image: docker.io/fluxcd/flux:1.21.0
+        image: localhost:5000/flux:v9
+        imagePullPolicy: Always
         livenessProbe:
           httpGet:
             path: /api/flux/v6/identity.pub
