@@ -176,7 +176,7 @@ spec:
         - name: CHECKPOINT_DISABLE
           value: "true"
         #image: docker.io/fluxcd/flux:1.21.0
-        image: localhost:5000/flux:v14
+        image: localhost:5000/flux:v15
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
